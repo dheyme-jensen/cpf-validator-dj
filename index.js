@@ -21,3 +21,19 @@ function multiply(cpf, sliceNum, mult){
     return digit;
 };
    
+function sum(cpf){
+    const cpfSum = cpf.reduce((counter, element) => {return counter + element});
+    const cpfModule = (cpfSum * 10) % 11 % 10;
+    return cpfModule
+};
+
+function cpfValidator(cpf){
+    const cpfNumber = cpfIncome(cpf);
+    const isFirstEqual = cpfNumber[0] === parseInt(cpf[9]);
+    const isSecondEqual = cpfNumber[1] === parseInt(cpf[10]);
+    return ((isFirstEqual && isSecondEqual) && sameNumber(cpf) && cpfLength(cpf));   
+};
+   
+console.log(cpfValidator('87052536080'));
+   
+module.exports.cpfValidator = cpfValidator;
