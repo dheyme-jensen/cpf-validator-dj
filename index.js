@@ -17,5 +17,4 @@ function cpfValidator(cpf) {
   }
   return false;
 };
-console.log(cpfValidator('87052536080'));
 module.exports.cpfValidator = cpfValidator;
